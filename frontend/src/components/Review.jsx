@@ -2,9 +2,20 @@ import { useState } from 'react'
 
 export default function Review({ reviewList, setReviewList, review_id, reviewer_name, review_rating, review_text, review_likes }) {
     function like() {
-        let reviewListClone = { ...reviewList }
-        reviewListClone[review_id].likes += 1;
-        setReviewList(reviewListClone);
+        fetch(`${import.meta.env.VITE_SERVER_URL}/api/reviews/like/${review_id}`, {
+            method: "PUT"
+        }).then((response) => {
+            if (response.ok) {
+                let reviewListClone = { ...reviewList }
+                reviewListClone[review_id].likes += 1;
+                setReviewList(reviewListClone);
+            }
+            else {
+                console.error(`Like failed, status code: ${response.status}`);
+            }
+        }).catch((err) => {
+            console.error(err);
+        });
     }
 
     return (
