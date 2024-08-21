@@ -52,7 +52,6 @@ export default function ReviewList() {
 
     return (
         <div>
-            {console.log(reviewList)}
             {
                 Object.values(reviewList).map((review, i) =>
                     <Review
