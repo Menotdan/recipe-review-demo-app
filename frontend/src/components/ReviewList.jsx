@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import Review from '/components/Review.jsx'
 
-export default function ReviewList() {
-    const [reviewList, setReviewList] = useState({});
+export default function ReviewList({ reviewList, setReviewList }) {
     const [fetchError, setFetchError] = useState("");
 
     useEffect(() => {

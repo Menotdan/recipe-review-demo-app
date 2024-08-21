@@ -2,7 +2,7 @@ import { useState } from "react";
 import './ReviewForm.css'
 
 
-export default function ReviewForm() {
+export default function ReviewForm({ reviewList, setReviewList }) {
     const [submitting, setSubmitting] = useState(false);
 
     function sendReview(event) {
@@ -17,7 +17,39 @@ export default function ReviewForm() {
         newReview["text"] = elements.text.value;
         newReview["rating"] = elements.rating.value;
 
-        setSubmitting(false);
+        fetch(`${import.meta.env.VITE_SERVER_URL}/api/reviews/create`, {
+            method: "POST",
+            body: JSON.stringify(newReview),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then((id) => {
+                    newReview["likes"] = 0;
+                    newReview["id"] = id;
+
+                    let reviewListClone = { ...reviewList }
+                    reviewListClone[id] = newReview;
+                    setReviewList(reviewListClone);
+
+                    elements.name.value = "";
+                    elements.text.value = "";
+                    elements.rating.value = 0;
+                    setSubmitting(false);
+                }).catch((err) => {
+                    console.error(err);
+                    setSubmitting(false);
+                });
+            }
+            else {
+                console.error(`Post failed, status code: ${response.status}`);
+                setSubmitting(false);
+            }
+        }).catch((err) => {
+            console.error(err);
+            setSubmitting(false);
+        });
     }
 
     return (

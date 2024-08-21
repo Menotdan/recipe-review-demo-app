@@ -4,10 +4,18 @@ import ReviewList from '/components/ReviewList.jsx'
 import ReviewForm from '/components/ReviewForm.jsx'
 
 function App() {
+  const [reviewList, setReviewList] = useState({});
+
   return (
     <>
-      <ReviewForm />
-      <ReviewList />
+      <ReviewForm
+        reviewList={reviewList}
+        setReviewList={setReviewList}
+      />
+      <ReviewList
+        reviewList={reviewList}
+        setReviewList={setReviewList}
+      />
     </>
   )
 }
