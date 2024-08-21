@@ -55,6 +55,7 @@ export default function ReviewList() {
             {
                 Object.values(reviewList).map((review, i) =>
                     <Review
+                        key = {review.id}
                         reviewList={reviewList} 
                         setReviewList={setReviewList}
                         review_id = {review.id}
