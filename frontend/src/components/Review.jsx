@@ -2,8 +2,9 @@ import { useState } from 'react'
 
 export default function Review({ reviewList, setReviewList, review_id, reviewer_name, review_rating, review_text, review_likes }) {
     function like() {
-        reviewList[review_id].likes += 1;
-        setReviewList(reviewList);
+        let reviewListClone = { ...reviewList }
+        reviewListClone[review_id].likes += 1;
+        setReviewList(reviewListClone);
     }
 
     return (

@@ -6,7 +6,6 @@
 }
 
 #reviewer_name {
-  border-bottom: 2px solid black;
   padding-bottom: 8px;
 }
 
@@ -14,6 +13,8 @@
   background-color: #151515;
   padding-top: 1px;
   padding-bottom: 8px;
+
+  border-bottom: 4px solid #0f0f0f;
 }
 
 #review_text {
