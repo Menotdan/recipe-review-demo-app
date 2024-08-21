@@ -1,0 +1,29 @@
+#review_form {
+    width: 100%;
+    margin: auto;
+    padding-top: 8px;
+    background-color: rgb(15, 15, 15);
+    margin-bottom: 8px;
+}
+
+#review_form_text {
+    width: 300px;
+    height: 80px;
+    font-size: large;
+}
+
+#review_form_name {
+    width: 120px;
+    height: 20px;
+    margin-bottom: 8px;
+    font-size: large;
+}
+
+#review_form_rating {
+    margin-bottom: 8px;
+}
+
+#review_form_submit {
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
