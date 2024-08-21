@@ -1,0 +1,32 @@
+#reviewer_name {
+    padding-bottom: 8px;
+}
+
+#review {
+    background-color: #151515;
+    padding-top: 1px;
+    padding-bottom: 8px;
+
+    border-bottom: 4px solid #0f0f0f;
+
+    width: 80%;
+    margin: auto;
+}
+
+#review_text {
+    background-color: #131313;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+}
+
+#like_icon {
+    margin-left: 8px;
+    filter: invert(1);
+}
+
+#like_button {
+    display: flex;
+    margin: auto;
+}

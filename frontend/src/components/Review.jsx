@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import './Review.css'
 
 export default function Review({ reviewList, setReviewList, review_id, reviewer_name, review_rating, review_text, review_likes }) {
     function like() {
