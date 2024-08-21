@@ -9,7 +9,7 @@ export default function ReviewList() {
         const dataFetch = async () => {
             try {
                 const response = await fetch(
-                    'http://localhost:8000/api/reviews',
+                    `${import.meta.env.VITE_SERVER_URL}/api/reviews`,
                 );
 
                 if (!response.ok) {
@@ -23,7 +23,6 @@ export default function ReviewList() {
                     dictData[review['id']] = review;
                 });
 
-                //console.log(dictData);
                 setReviewList(dictData);
             }
             catch (err) {
