@@ -1,0 +1,18 @@
+#recipe {
+    background-color: rgb(20, 20, 20);
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    padding-top: 4px;
+    margin-bottom: 8px;
+}
+
+.recipe_section_label {
+    margin-top: 10px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.recipe_list_item {
+    text-align: left;
+}
