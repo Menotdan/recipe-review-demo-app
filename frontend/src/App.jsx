@@ -12,6 +12,7 @@ function App() {
       <Recipe
         reviewList={reviewList}
       />
+      <h1>Reviews</h1>
       <ReviewForm
         reviewList={reviewList}
         setReviewList={setReviewList}
