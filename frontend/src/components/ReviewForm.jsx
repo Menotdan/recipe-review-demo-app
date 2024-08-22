@@ -15,7 +15,7 @@ export default function ReviewForm({ reviewList, setReviewList }) {
         let newReview = {};
         newReview["name"] = elements.name.value;
         newReview["text"] = elements.text.value;
-        newReview["rating"] = elements.rating.value;
+        newReview["rating"] = Number.parseInt(elements.rating.value);
 
         fetch(`${import.meta.env.VITE_SERVER_URL}/api/reviews/create`, {
             method: "POST",
