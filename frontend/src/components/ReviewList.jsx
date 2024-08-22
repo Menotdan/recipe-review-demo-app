@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import Review from '/components/Review.jsx'
 
 export default function ReviewList({ reviewList, setReviewList }) {
-    const [fetchError, setFetchError] = useState("");
+    const [fetchError, setFetchError] = useState(undefined);
+    const [fetched, setFetched] = useState(false);
 
     useEffect(() => {
         const dataFetch = async () => {
@@ -23,6 +24,7 @@ export default function ReviewList({ reviewList, setReviewList }) {
                 });
 
                 setReviewList(dictData);
+                setFetched(true);
             }
             catch (err) {
                 setFetchError(err);
@@ -32,7 +34,7 @@ export default function ReviewList({ reviewList, setReviewList }) {
         dataFetch();
     }, []);
 
-    if (fetchError.length > 0) {
+    if (fetchError != undefined) {
         return (
             <>
                 <h1>Error!</h1>
@@ -41,7 +43,7 @@ export default function ReviewList({ reviewList, setReviewList }) {
         )
     }
 
-    if (Object.getOwnPropertyNames(reviewList).length == 0) {
+    if (!fetched) {
         return (
             <>
              <h1>Loading...</h1>

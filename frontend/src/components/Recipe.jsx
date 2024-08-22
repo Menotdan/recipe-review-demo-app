@@ -8,7 +8,9 @@ export default function Recipe({ reviewList }) {
         return accumulator + review.rating;
     }, 0);
 
-    const averageRating = Number.parseFloat(reviewRatings / reviewCount).toFixed(2);
+    const averageRating = reviewCount > 0 ?
+        Number.parseFloat(reviewRatings / reviewCount).toFixed(2)
+        : "?";
 
     return (
         <div id="recipe">
