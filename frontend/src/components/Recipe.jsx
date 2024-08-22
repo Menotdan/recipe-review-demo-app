@@ -6,9 +6,6 @@ export default function Recipe({ reviewList }) {
         return accumulator + review.rating;
     }, 0);
 
-    console.log(reviewRatings);
-    console.log(reviewCount);
-    console.log(reviews);
     const averageRating = Number.parseFloat(reviewRatings / reviewCount).toFixed(2);
 
     return (
