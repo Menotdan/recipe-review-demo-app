@@ -10,4 +10,5 @@ Next, in another terminal, `cd` into the `frontend` folder. Then, run `npm insta
 Now, you can visit the app at the URL displayed in the frontend terminal.
 
 Copyright 2024 (c) Menotdan
+
 Please see LICENSE for more information.
