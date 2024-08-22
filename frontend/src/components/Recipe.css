@@ -13,6 +13,6 @@
     text-align: left;
 }
 
-.recipe_list_item {
+.recipe_list > li {
     text-align: left;
 }
