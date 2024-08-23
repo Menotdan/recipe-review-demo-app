@@ -27,7 +27,7 @@ class CreateReviewView(generics.CreateAPIView):
         return data.id
 
 class LikeReviewAPIView(APIView):
-    def put(self, request, like_id, *args, **kwargs):
+    def post(self, request, like_id, *args, **kwargs):
         liking_id = like_id or request.query_params.get('id')
 
         liking_review = Review.objects.get(id=liking_id)
