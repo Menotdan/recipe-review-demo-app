@@ -6,7 +6,7 @@ This is a simple app made with Vite+React.js (frontend), and Django (backend). I
 
 Note: This project requires you to install `djangorestframework` from pip.
 
-To start a development server, in a terminal, `cd` into the `backend` folder. Then, run `python manage.py makemigrations`, `python manage.py migrate` and `python manage.py runserver` to start the backend server.
+To start a development server, in a terminal, `cd` into the `backend/django` folder. Then, run `python manage.py makemigrations`, `python manage.py migrate` and `python manage.py runserver` to start the backend server.
 
 Next, in another terminal, `cd` into the `frontend` folder. Then, run `npm install` and `npm run dev` to start the frontend server.
 
