@@ -1,17 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using backend.Controllers;
 using backend.Db;
 
+const string CORSPolicyName = "_corsAllowOriginsList";
+
 var builder = WebApplication.CreateBuilder(args);
-var CorsAllowOrigins = "_corsAllowOriginsList";
 
 // Add services to the container.
-builder.Services.AddDbContext<ReviewListContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<ReviewListContext>(options => options.UseSqlite());
 builder.Services.AddControllers();
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -20,7 +16,7 @@ if (builder.Environment.IsDevelopment())
     builder.Services.AddCors(options =>
     {
         options.AddPolicy(
-            name: CorsAllowOrigins,
+            name: CORSPolicyName,
             policy =>
             {
                 policy.AllowAnyOrigin();
@@ -32,19 +28,15 @@ if (builder.Environment.IsDevelopment())
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Configure the HTTP request pipeline.
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
-app.UseCors(CorsAllowOrigins);
-
+app.UseCors(CORSPolicyName);
 app.MapControllers();
-
 app.Run();
