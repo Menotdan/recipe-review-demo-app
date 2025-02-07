@@ -1,10 +1,9 @@
 from django.urls import path
 
-from . import views
+from .controllers import reviews_controller
 
 urlpatterns = [
-    path('hello/', views.hello_endpoint),
-    path('reviews/', views.ListReviewsView.as_view()),
-    path('reviews/create', views.CreateReviewView.as_view()),
-    path('reviews/like/<int:like_id>', views.LikeReviewAPIView.as_view()),
+    path('reviews/', reviews_controller.ListReviewsView.as_view()),
+    path('reviews/create', reviews_controller.CreateReviewView.as_view()),
+    path('reviews/like/<int:like_id>', reviews_controller.LikeReviewAPIView.as_view()),
 ]
