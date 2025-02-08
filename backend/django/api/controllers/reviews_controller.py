@@ -27,7 +27,11 @@ class LikeReviewAPIView(APIView):
     def post(self, request, like_id):
         liking_id = like_id or request.query_params.get('id')
 
-        liking_review = ReviewModel.objects.get(id=liking_id)
+        try:
+            liking_review = ReviewModel.objects.get(id=liking_id)
+        except ReviewModel.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
         liking_review.likes += 1
         liking_review.save(update_fields=['likes'])
 
